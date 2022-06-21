@@ -3,15 +3,17 @@ import Button from './Button'
 
 class Buttons extends Component {
   render() {
-    const {choices} = this.props
-    const buttons = choices.map(choice => {
-      return (
-        <Button choice={choice} />
-      )
-    })
+    const choices = this.props.choices;
 
     return (
-      <div className="buttons">{buttons}</div>
+      <div className="buttons">
+        {choices.map(choice => 
+          <Button 
+            choice={choice}
+            onClick={(event) => this.props.onClick(event)}
+          />
+        )}
+      </div>
     )
   }
 }
