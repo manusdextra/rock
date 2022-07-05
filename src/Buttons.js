@@ -8,16 +8,15 @@ class Buttons extends Component {
     return (
       <div
         className="
-          row-start-3 col-start-2 
-          text-3xl flex flex-col gap-2
-          place-content-center
+          col-start-2 row-start-3 
+          flex flex-col
+          place-content-center 
+          gap-2 py-2
+          text-3xl
       "
       >
         {choices.map((choice) => (
-          <Button
-            choice={choice}
-            onClick={(event) => this.props.onClick(event)}
-          />
+          <Button choice={choice} onClick={this.props.onClick} />
         ))}
       </div>
     );

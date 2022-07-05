@@ -5,8 +5,8 @@ class Button extends Component {
     return (
       <button
         value={this.props.choice}
-        onClick={(event) => this.props.onClick(event)}
-        className="rounded-lg hover:border-2 hover:border-slate-700 font-bold text-xl h-12 w-full bg-gray-400"
+        onClick={this.props.onClick}
+        className="h-full w-full rounded-lg bg-gray-400 text-xl font-bold hover:border-2 hover:border-slate-700"
       >
         {this.props.choice}
       </button>

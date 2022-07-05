@@ -16,13 +16,13 @@ class App extends Component {
     this.setState(() => ({
       playerChoice: event.target.value,
     }));
-    setTimeout(this.computerChoose(), 3000);
+    this.computerChoose();
   }
 
   computerChoose() {
-    const index = Math.floor(Math.random() * this.state.choices.length)
+    const index = Math.floor(Math.random() * this.state.choices.length);
     this.setState(() => ({
-      computerChoice: this.state.choices[index]
+      computerChoice: this.state.choices[index],
     }));
   }
 
@@ -31,13 +31,13 @@ class App extends Component {
     const computerChoice = this.state.computerChoice;
 
     return (
-      <div className="grid grid-cols-3 grid-rows-3 w-screen h-screen">
+      <div className="grid h-screen w-screen grid-cols-3 grid-rows-3">
         <div
           className="
-          rounded-lg p-6
-          my-2
-          bg-slate-400
           col-start-2 row-start-1
+          my-2
+          rounded-lg
+          bg-slate-400 p-6
           text-center text-3xl
         "
         >
@@ -47,10 +47,10 @@ class App extends Component {
         </div>
         <div
           className="
-          rounded-lg p-6
-          my-2
-          bg-slate-200
           col-start-2 row-start-2
+          my-2
+          rounded-lg
+          bg-slate-200 p-6
           text-center text-3xl
         "
         >
