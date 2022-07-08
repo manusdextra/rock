@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Buttons from "./Buttons";
 
 export default function App() {
@@ -6,15 +6,20 @@ export default function App() {
   const [score, setScore] = useState({ player: 0, computer: 0 });
 
   const [playerChoice, setPlayerChoice] = useState(null);
+  const yourTurn = useRef(true);
   useEffect(() => {
-    computerChoose();
+    if (yourTurn.current) {
+      yourTurn.current = false;
+    } else {
+      computerChoose();
+    }
   }, [playerChoice]);
 
   const [computerChoice, setComputerChoice] = useState(null);
   useEffect(() => {
     if (whoWon() === "player") {setScore( score => ({...score, player: score.player + 1}))};
     if (whoWon() === "computer") {setScore( score => ({...score, computer: score.computer + 1}))};
-  }, [playerChoice]);
+  }, [computerChoice]);
 
 
   function handleClick(e) {
