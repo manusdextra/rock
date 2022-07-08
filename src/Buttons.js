@@ -12,8 +12,8 @@ function Buttons ({ choices, onClick }) {
         text-3xl
     "
     >
-      {choices.map((choice) => (
-        <Button choice={choice} onClick={onClick} />
+      {choices.map((choice, index) => (
+        <Button choice={choice} key={index} onClick={onClick} />
       ))}
     </div>
   );

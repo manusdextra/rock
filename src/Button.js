@@ -1,11 +1,12 @@
 import React from "react";
 
-function Button({ choice, onClick }) {
+function Button({ choice, index, onClick }) {
   return (
     <button
       value={choice}
       onClick={onClick}
-      className="h-full w-full rounded-lg bg-gray-400 text-xl font-bold hover:border-2 hover:border-slate-700"
+      key={index}
+      className="h-full w-full rounded-lg bg-gray-400 text-xl font-bold border-2 border-slate-400 hover:border-2 hover:border-slate-700"
     >
       {choice}
     </button>
