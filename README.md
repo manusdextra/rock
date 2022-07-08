@@ -7,3 +7,8 @@ I've also taken this opportunity to experiment with TailwindCSS and the associat
 ## Status
 
 So far, I've implemented the logic, and I've started learning about useState() and useEffect(). These have been difficult to wrap my head around, but the documentation has been a big help.
+
+Below is a list of things I've struggled with in particular.
+---
+### Delays
+I'm not sure how to implement these because setTimeout() doesn't seem to work. I'm sure this is down to how React works in its rendering process, but I haven't figured it out yet.
