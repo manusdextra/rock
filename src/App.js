@@ -17,32 +17,42 @@ export default function App() {
 
   const [computerChoice, setComputerChoice] = useState(null);
   useEffect(() => {
-    if (whoWon() === "player") {setScore( score => ({...score, player: score.player + 1}))};
-    if (whoWon() === "computer") {setScore( score => ({...score, computer: score.computer + 1}))};
+    if (whoWon() === "player") {
+      setScore((score) => ({ ...score, player: score.player + 1 }));
+    }
+    if (whoWon() === "computer") {
+      setScore((score) => ({ ...score, computer: score.computer + 1 }));
+    }
   }, [computerChoice]);
-
 
   function handleClick(e) {
     setPlayerChoice(e.target.value);
-  };
+  }
 
   function computerChoose() {
     let index = Math.floor(Math.random() * choices.length);
     setComputerChoice(choices[index]);
-  };
+  }
 
   function whoWon() {
-    if ((playerChoice === "rock" && computerChoice === "scissors")
-      || (playerChoice === "paper" && computerChoice === "rock")
-      || (playerChoice === "scissors" && computerChoice === "paper")) return "player";
-    if ((playerChoice === "rock" && computerChoice === "paper")
-      || (playerChoice === "paper" && computerChoice === "scissors")
-      || (playerChoice === "scissors" && computerChoice === "rock")) return "computer";
-  };
+    if (
+      (playerChoice === "rock" && computerChoice === "scissors") ||
+      (playerChoice === "paper" && computerChoice === "rock") ||
+      (playerChoice === "scissors" && computerChoice === "paper")
+    )
+      return "player";
+    if (
+      (playerChoice === "rock" && computerChoice === "paper") ||
+      (playerChoice === "paper" && computerChoice === "scissors") ||
+      (playerChoice === "scissors" && computerChoice === "rock")
+    )
+      return "computer";
+  }
 
   return (
     <div className="grid h-screen w-screen grid-cols-[1fr_80vw_1fr] grid-rows-3">
       <div
+        id="main"
         className="
           col-start-2 row-start-1 my-2
           grid grid-cols-2
@@ -52,13 +62,13 @@ export default function App() {
           text-center text-3xl
         "
       >
-        <div>
+        <div id="you">
           You:
           <br />
           {playerChoice ? playerChoice : ""}
         </div>
 
-        <div>
+        <div id="computer">
           Computer:
           <br />
           {computerChoice ? computerChoice : ""}
@@ -66,6 +76,7 @@ export default function App() {
       </div>
 
       <div
+        id="score"
         className="
             col-start-2 row-start-2 my-2
             grid grid-cols-2

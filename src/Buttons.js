@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "./Button";
 
-function Buttons ({ choices, onClick }) {
+function Buttons({ choices, onClick }) {
   return (
     <div
+      id="buttons"
       className="
         col-start-2 row-start-3 
         flex flex-col
